@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Clientes PooP</title>
+</head>
+
+<body>
+    <header class="header-base">
+        <nav class="nav-base">
+            <ul>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('cadastrar')}}">Cadastrar</a></li>
+                <li><a href="{{url_for('listar')}}">Clientes</a></li>
+                <li><a href="{{url_for('editar')}}">Gerenciar Clientes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block conteudo %}
+
+        {% endblock conteudo %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Gabriel Di Michele & Erick Braga Mota. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+
+</html>

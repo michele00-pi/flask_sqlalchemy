@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Home | ClientesPooP</title>
+</head>
+
+<body class="body-index">
+    <header class="header-painel">
+        <h1 class="h1-painel">Painel de Clientes</h1>
+    </header>
+
+    <main class="main-cards">
+        <section class="section-card-cadastrar">
+            <a href="{{url_for('cadastrar')}}">
+                <img class="img-cards" src="{{url_for('static', filename='images/cadastro.png')}}" alt="Imagem de cadastro dos clientes">
+            </a>
+        </section>
+        <section class="section-card-listar">
+            <a href="{{url_for('listar')}}">
+                <img class="img-cards" src="{{url_for('static', filename='images/lista.png')}}" alt="Imagem de listar clientes">
+            </a>
+        </section>
+        <section class="section-card-editar">
+            <a href="{{url_for('editar')}}">
+                <img class="img-cards" src="{{url_for('static', filename='images/editar.png')}}" alt="Imagem de editar clientes">
+            </a>
+        </section>
+    </main>
+</body>
+
+</html>
