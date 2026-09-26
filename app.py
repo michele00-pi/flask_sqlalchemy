@@ -29,13 +29,36 @@ def home():
 
 @app.route("/cadastrar", methods=["GET", "POST"])
 def cadastrar():
+
+    if request.method =='POST':
+
+        nome = request.form.get("nome_cliente")
+        cargo = request.form.get("cargo_cliente")
+        salario = request.form.get("salario_cliente")
+
+        try:
+            salario = float(salario)
+
+            novo_cliente = Clientes(nome,cargo,salario)
+            db.session.add(novo_cliente)
+            db.session.commit()
+            flash("Cliente cadastrado com sucesso!", "success")
+
+            # Redireciona para evitar re-envio do formulário ao dar F5
+            return redirect(url_for("cadastrar"))
+
+        except Exception as e:
+            db.session.rollback()
+            flash(f"Ocorreu um erro ao cadastrar o cliente: {e}", "danger")
+
     return render_template("cadastrar.html")
 
 #ROTA LISTAR
 
 @app.route('/listar',)
 def listar():
-    return render_template("listar.html")
+    clientes = Clientes.query.all()
+    return render_template("listar.html", clientes=clientes)
 
 #ROTA EDITAR
 

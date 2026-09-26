@@ -1,4 +1,18 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-
-{% endblock conteudo %}
+<center>
+    <h2 class="h2-cadastrar">Cadastre seu cliente</h2>
+</center>
+<div class="div-pai">
+    <section class="section-cadastro">
+        <form action="{{ url_for('cadastrar') }}" method="POST" class="form-cadastro">
+            <div class="div-inputs">
+                <input class="input-nome" type="text" name="nome_cliente" placeholder="Nome cliente" required>
+                <input class="input-cargo" type="text" name="cargo_cliente" placeholder="Cargo Cliente" required>
+                <input class="input-salario" type="number" name="salario_cliente" step="0.01"
+                    placeholder="Salário Cliente" required>
+                <input class="botao-submit" type="submit" value="Cadastrar cliente">
+            </div>
+        </form>
+    </section </div>
+    {% endblock conteudo %}
