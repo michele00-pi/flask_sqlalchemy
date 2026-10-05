@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-<center>
-    <h2 class="h2-cadastrar">Cadastre seu cliente</h2>
-</center>
+
 <div class="div-pai">
     <section class="section-cadastro">
+        <h2 class="h2-cadastrar">Cadastre seu cliente</h2>
         <form action="{{ url_for('cadastrar') }}" method="POST" class="form-cadastro">
             <div class="div-inputs">
                 <input class="input-nome" type="text" name="nome_cliente" placeholder="Nome cliente" required>

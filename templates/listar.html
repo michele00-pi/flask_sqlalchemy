@@ -1,4 +1,23 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-
+<section class="section-lista">
+    <table class="table-clientes">
+        <thead class="thead-clientes">
+            <th>ID</th>
+            <th>NOME</th>
+            <th>CARGO</th>
+            <th>SALÁRIO</th>
+        </thead>
+        <tbody class="tbody-clientes">
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{cliente.id_cliente}}</td>
+                <td>{{cliente.nome_cliente}}</td>
+                <td>{{cliente.cargo_cliente}}</td>
+                <td>R${{cliente.salario_cliente}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
 {% endblock conteudo %}

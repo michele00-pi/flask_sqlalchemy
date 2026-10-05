@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* CSS BASE.HTML*/
+/* CSS base.html e cadastar.html */
 .body-base {
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
     border: 2px solid black;
     border-radius: 15px;
 
-    background-color: #d6fbeb;
+    background-color: #ffffff;
 
 }
 
@@ -52,24 +52,29 @@
 .div-pai {
     display: flex;
     justify-content: center;
-    border: 2px solid black;
+    margin: 40px;
 }
 
 .section-cadastro {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
-    border: 2px solid black;
+    align-items: center;
 
-    margin: 40px;
+    background-color: #ffffff;
 
-    width: 500px;
+    border-radius: 20px;
+
+    width: 330px;
 }
 
 .div-inputs {
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    padding: 20px;
 
 }
 
@@ -91,10 +96,8 @@
 .input-nome::placeholder,
 .input-cargo::placeholder,
 .input-salario::placeholder {
-    color: #fefefe7f;
+    color: #fefefe48;
     /* Muda a cor do texto */
-    font-style: italic;
-    /* Deixa o texto em itálico */
     font-size: 16px;
     /* Altera o tamanho da fonte */
     opacity: 4;
@@ -105,6 +108,8 @@
     color: azure;
     background-color: red;
     border-radius: 20px;
+
+    font-size: 15px;
 
     height: 40px;
     width: 200px;
@@ -121,10 +126,12 @@ footer {
     width: 100%;
     /* Faz ele ocupar toda a largura da tela */
 
-    background-color: #d6fbeb;
+    background-color: #ffffff;
     /* Dica: adicione uma cor de fundo para o conteúdo não vazar por baixo */
     border-top: 2px solid black;
     /* Ajustei a borda para ficar apenas no topo, já que ele está colado no chão */
+
+    border-radius: 10px 10px 0 0;
 
     display: flex;
     justify-content: center;
@@ -132,6 +139,51 @@ footer {
     /* Um espaçamento interno para não ficar espremido */
 }
 
+/*CSS listar.html*/
+
+.section-lista{
+    display: flex;
+    justify-content: center;
+
+    margin: 40px;
+
+}
+
+.table-clientes{
+    border: 2px solid black;
+    border-radius: 10px;
+
+    background-color: #ffffff;
+
+    padding: 5px;
+    margin: 20px;
+}
+
+.thead-clientes , .thead-clientes th{
+    border: 2px solid black;
+    border-radius: 10px;
+
+    background-color: #000000;
+
+    color: azure;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    margin:5px;
+    padding: 10px;
+}
+
+.tbody-clientes td{
+    border: 2px solid black;
+    border-radius: 10px;
+
+    background-color: #000000;
+
+    color: azure;
+
+    text-align: center;
+
+    padding: 8px;
+}
 
 /* CSS INDEX.HTML*/
 
@@ -186,3 +238,6 @@ footer {
 .img-cards:hover {
     transform: scale(1.1);
 }
+
+/* CSS editar.html */
+
