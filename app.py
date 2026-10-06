@@ -62,9 +62,34 @@ def listar():
 
 #ROTA EDITAR
 
-@app.route('/editar', methods=["GET","POST"])
-def editar():
-    return render_template("editar.html")
+@app.route('/editar/<int:id_cliente>', methods=["GET","POST"])
+def editar(id_cliente):
+    cliente = Clientes.query.get_or_404(id_cliente)
+
+    if request.method == "POST":
+        cliente.nome_cliente = request.form.get("nome_cliente")
+        cliente.cargo_cliente = request.form.get("cargo_cliente")
+        cliente.salario_cliente = request.form.get("salario_cliente")
+
+        db.session.commit()
+        flash("Cliente atualizado com sucesso!", "success")
+        return redirect(url_for("listar"))
+    
+    return render_template("editar.html", cliente=cliente)
+
+#ROTA EXCLUIR
+
+@app.route('/excluir/<int:id_cliente>', methods=["GET","POST"])
+def excluir(id_cliente):
+    cliente = Clientes.query.get_or_404(id_cliente)
+
+    if request.method == "POST":
+        db.session.delete(cliente)
+        db.session.commit()
+        flash("Cliente excluído com sucesso!", "success")
+        return redirect(url_for("listar"))
+    
+    return render_template("listar.html")
 
 #DEBUGGING AND DATABASE CREATION
 

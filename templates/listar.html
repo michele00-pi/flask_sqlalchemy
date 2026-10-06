@@ -7,6 +7,8 @@
             <th>NOME</th>
             <th>CARGO</th>
             <th>SALÁRIO</th>
+            <th>EDITAR</th>
+            <th>EXCLUIR</th>
         </thead>
         <tbody class="tbody-clientes">
             {% for cliente in clientes %}
@@ -15,6 +17,8 @@
                 <td>{{cliente.nome_cliente}}</td>
                 <td>{{cliente.cargo_cliente}}</td>
                 <td>R${{cliente.salario_cliente}}</td>
+                <td><form action="{{url_for('editar', id_cliente=cliente.id_cliente)}}" method="get"><button class="botao-editar" type="submit">✏️</button></form></td>
+                <td><form action="{{url_for('excluir', id_cliente=cliente.id_cliente)}}" method="post"><button class="botao-editar" type="submit">❌</button></form></td>
             </tr>
             {% endfor %}
         </tbody>
