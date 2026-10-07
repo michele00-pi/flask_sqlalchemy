@@ -2,31 +2,45 @@
 {% block conteudo %}
 <section class="section-lista">
     <h1 class="h1-lista">Lista de Clientes</h1>
-    <table class="table-clientes">
-        <thead class="thead-clientes">
-            <th>ID</th>
-            <th>NOME</th>
-            <th>CARGO</th>
-            <th>SALÁRIO</th>
-            <th>EMAIL</th>
-            <th>CPF</th>
-            <th>EDITAR</th>
-            <th>EXCLUIR</th>
-        </thead>
-        <tbody class="tbody-clientes">
-            {% for cliente in clientes %}
-            <tr>
-                <td>{{cliente.id_cliente}}</td>
-                <td>{{cliente.nome_cliente}}</td>
-                <td>{{cliente.cargo_cliente}}</td>
-                <td>R${{cliente.salario_cliente}}</td>
-                <td>{{cliente.email_cliente}}</td>
-                <td>{{cliente.cpf_cliente}}</td>
-                <td><form action="{{url_for('editar', id_cliente=cliente.id_cliente)}}" method="get"><button class="botao-editar" type="submit">✏️</button></form></td>
-                <td><form action="{{url_for('excluir', id_cliente=cliente.id_cliente)}}" method="post"><button class="botao-editar" type="submit">❌</button></form></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+
+    <!-- Adicione esta div ao redor da tabela -->
+    <div class="tabela-container">
+        <table class="table-clientes">
+            <thead class="thead-clientes">
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>CARGO</th>
+                    <th>SALÁRIO</th>
+                    <th>EMAIL</th>
+                    <th>CPF</th>
+                    <th>EDITAR</th>
+                    <th>EXCLUIR</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-clientes">
+                {% for cliente in clientes %}
+                <tr>
+                    <td>{{cliente.id_cliente}}</td>
+                    <td>{{cliente.nome_cliente}}</td>
+                    <td>{{cliente.cargo_cliente}}</td>
+                    <td>R${{cliente.salario_cliente}}</td>
+                    <td>{{cliente.email_cliente}}</td>
+                    <td>{{cliente.cpf_cliente}}</td>
+                    <td>
+                        <form action="{{url_for('editar', id_cliente=cliente.id_cliente)}}" method="get">
+                            <button class="botao-editar" type="submit">✏️</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{url_for('excluir', id_cliente=cliente.id_cliente)}}" method="post">
+                            <button class="botao-editar" type="submit">❌</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </section>
 {% endblock conteudo %}

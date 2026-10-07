@@ -152,11 +152,16 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Removido justify-content: center e overflow-y para não quebrar a rolagem */
+    margin: 40px auto;
+}
 
-    justify-content: center;
-
-    margin: 40px;
-
+/* Novo container para controlar o scroll sem quebrar o H1 */
+.tabela-container {
+    max-height: 450px; /* Limita a altura da tabela */
+    overflow-y: auto;  /* Ativa o scroll apenas se a tabela passar de 450px */
+    border-radius: 10px;
+    margin: 20px;
 }
 
 .h1-lista{
@@ -183,7 +188,8 @@ footer {
     background-color: #ffffff;
 
     padding: 5px;
-    margin: 20px;
+    border-collapse: separate;
+    border-spacing: 5px;
 }
 
 .thead-clientes , .thead-clientes th{
@@ -195,8 +201,12 @@ footer {
     color: azure;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
-    margin:5px;
     padding: 10px;
+
+    /* Mantém o cabeçalho preto fixo no topo enquanto rola a lista */
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .tbody-clientes td{
