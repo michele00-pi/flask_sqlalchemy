@@ -13,12 +13,16 @@ class Clientes(db.Model):
     nome_cliente = db.Column(db.String(40), nullable=False)
     cargo_cliente = db.Column(db.String(40), nullable=False)
     salario_cliente = db.Column(db.Numeric(precision=10, scale=2), nullable=False)
+    email_cliente = db.Column(db.String(50), nullable=True)
+    cpf_cliente = db.Column(db.String(11), unique=True , nullable=True)
 
-    def __init__(self, nome_cliente, cargo_cliente,salario_cliente):
+    def __init__(self, nome_cliente, cargo_cliente,salario_cliente, email_cliente, cpf_cliente):
         self.nome_cliente = nome_cliente
         self.cargo_cliente = cargo_cliente
         self.salario_cliente = salario_cliente
-        
+        self.email_cliente = email_cliente
+        self.cpf_cliente = cpf_cliente
+
 #ROTA HOME
 
 @app.route("/")
@@ -35,11 +39,13 @@ def cadastrar():
         nome = request.form.get("nome_cliente")
         cargo = request.form.get("cargo_cliente")
         salario = request.form.get("salario_cliente")
+        email = request.form.get("email_cliente")
+        cpf = request.form.get("cpf_cliente")
 
         try:
             salario = float(salario)
 
-            novo_cliente = Clientes(nome,cargo,salario)
+            novo_cliente = Clientes(nome,cargo,salario,email,cpf)
             db.session.add(novo_cliente)
             db.session.commit()
             flash("Cliente cadastrado com sucesso!", "success")
@@ -70,6 +76,8 @@ def editar(id_cliente):
         cliente.nome_cliente = request.form.get("nome_cliente")
         cliente.cargo_cliente = request.form.get("cargo_cliente")
         cliente.salario_cliente = request.form.get("salario_cliente")
+        cliente.email_cliente = request.form.get("email_cliente")
+        cliente.cpf_cliente = request.form.get("cpf_cliente")
 
         db.session.commit()
         flash("Cliente atualizado com sucesso!", "success")

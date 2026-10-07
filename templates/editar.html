@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 {% block conteudo %}
+
 <div class="div-pai">
     <section class="section-cadastro">
         <h2 class="h2-cadastrar">Atualizar Cliente</h2>
         <form action="{{ url_for('editar', id_cliente=cliente.id_cliente) }}" method="POST" class="form-cadastro">
             <div class="div-inputs">
-                <input class="input-nome" type="text" name="nome_cliente" placeholder="Nome cliente" required>
-                <input class="input-cargo" type="text" name="cargo_cliente" placeholder="Cargo Cliente" required>
-                <input class="input-salario" type="number" name="salario_cliente" step="0.01"
-                    placeholder="Salário Cliente" required>
+                <input class="input-nome" type="text" name="nome_cliente" value="{{ cliente.nome_cliente }}" placeholder="Nome cliente" required>
+                <input class="input-cargo" type="text" name="cargo_cliente" value="{{ cliente.cargo_cliente }}" placeholder="Cargo Cliente" required>
+                <input class="input-salario" type="number" name="salario_cliente" step="0.01" value="{{ cliente.salario_cliente }}" placeholder="Salário Cliente" required>
+                <input class="input-email" type="email" name="email_cliente" value="{{ cliente.email_cliente }}" placeholder="Email Cliente" required>
+                <input class="input-cpf" type="text" name="cpf_cliente" value="{{ cliente.cpf_cliente }}" placeholder="CPF Cliente" pattern="\d{11}"
+                    title="Digite um CPF válido com 11 dígitos" required>
                 <input class="botao-submit" type="submit" value="Cadastrar cliente">
             </div>
         </form>
     </section>
-{% endblock conteudo %}
+    {% endblock conteudo %}
